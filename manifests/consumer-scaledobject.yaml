@@ -7,13 +7,15 @@ spec:
   scaleTargetRef:
     kind: Deployment
     name: consumer-deployment
-  minReplicaCount: 1  # Sempre manter pelo menos 1 instância em execução
-  maxReplicaCount: 5  # Escalar até no máximo 5 instâncias
+  pollingInterval: 5
+  cooldownPeriod: 20
+  minReplicaCount: 1
+  maxReplicaCount: 5
   triggers:
   - type: rabbitmq
     metadata:
       host: "amqp://rabbitmq"
       protocol: amqp
-      queueName: test_q
+      queueName: queue
       mode: QueueLength
       value: "5"

@@ -1,5 +1,5 @@
 import time
-from setup_consumer import set_channel_and_queue
+from setup_consumer import set_queue
 
 
 def my_callback(channel, method, properties, body):
@@ -10,9 +10,9 @@ def my_callback(channel, method, properties, body):
 
 
 def consumer():
-    channel = set_channel_and_queue()
+    channel = set_queue()
     channel.basic_qos(prefetch_count=1)
-    channel.basic_consume(queue='test_q',
+    channel.basic_consume(queue='queue',
                           on_message_callback=my_callback,
                           auto_ack=False)
     print('Esperando por mensagens. Pressione CTRL+C para sair.')
