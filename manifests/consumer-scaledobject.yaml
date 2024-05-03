@@ -9,7 +9,7 @@ spec:
     name: consumer-deployment
   pollingInterval: 5
   cooldownPeriod: 20
-  minReplicaCount: 1
+  minReplicaCount: 0
   maxReplicaCount: 5
   triggers:
   - type: rabbitmq

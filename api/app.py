@@ -3,6 +3,7 @@ from setup import set_queue
 
 app = FastAPI()
 
+
 @app.on_event("startup")
 def startup():
     channel = set_queue()
